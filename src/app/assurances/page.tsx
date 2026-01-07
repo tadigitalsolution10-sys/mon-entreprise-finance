@@ -94,6 +94,7 @@ export default function InsurancePage() {
       {/* --- HERO SECTION --- */}
       <section className="bg-brand-blue pt-32 pb-24 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-yellow/5 skew-x-12 translate-x-20 hidden lg:block"></div>
+        
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="text-white space-y-8 animate-in fade-in slide-in-from-left duration-700">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full backdrop-blur-md">
@@ -193,6 +194,7 @@ export default function InsurancePage() {
                   <h3 className="text-4xl font-black uppercase italic text-brand-yellow mb-2">{selectedService}</h3>
                   <p className="text-blue-100 font-bold italic uppercase text-xs tracking-[0.2em]">Formulaire de cotation rapide</p>
                 </div>
+                
                 <div className="bg-white/10 p-2 rounded-[22px] backdrop-blur-xl flex border border-white/10">
                   <button onClick={() => setFormMode('standard')} className={`flex items-center gap-2 px-6 py-3 rounded-[18px] font-black uppercase text-[10px] tracking-widest transition-all ${formMode === 'standard' ? 'bg-brand-yellow text-brand-blue shadow-lg' : 'text-white hover:bg-white/5'}`}>
                     <FileText size={16} /> Détails
