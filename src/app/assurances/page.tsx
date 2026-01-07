@@ -93,9 +93,7 @@ export default function InsurancePage() {
     <div className="min-h-screen bg-white">
       {/* --- HERO SECTION --- */}
       <section className="bg-brand-blue pt-32 pb-24 overflow-hidden relative">
-        {/* Décoration en arrière-plan */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-yellow/5 skew-x-12 translate-x-20 hidden lg:block"></div>
-        
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
           <div className="text-white space-y-8 animate-in fade-in slide-in-from-left duration-700">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full backdrop-blur-md">
@@ -121,7 +119,6 @@ export default function InsurancePage() {
             </div>
           </div>
 
-          {/* IMAGE RÉELLE : Femme au bureau */}
           <div className="relative h-[500px] lg:h-[600px] rounded-[50px] overflow-hidden border-[12px] border-white/5 shadow-2xl group animate-in fade-in slide-in-from-right duration-1000">
              <img 
                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000" 
@@ -191,13 +188,11 @@ export default function InsurancePage() {
         <section id="devis-form" className="py-20 bg-brand-blue/5 scroll-mt-20">
           <div className="max-w-4xl mx-auto px-4">
             <div className="bg-white rounded-[50px] shadow-2xl overflow-hidden border border-gray-100">
-              
-              <div className="bg-brand-blue p-10 md:p-14 text-white flex flex-col md:row justify-between items-center gap-8 relative">
+              <div className="bg-brand-blue p-10 md:p-14 text-white flex flex-col md:flex-row justify-between items-center gap-8 relative">
                 <div className="text-center md:text-left">
                   <h3 className="text-4xl font-black uppercase italic text-brand-yellow mb-2">{selectedService}</h3>
                   <p className="text-blue-100 font-bold italic uppercase text-xs tracking-[0.2em]">Formulaire de cotation rapide</p>
                 </div>
-                
                 <div className="bg-white/10 p-2 rounded-[22px] backdrop-blur-xl flex border border-white/10">
                   <button onClick={() => setFormMode('standard')} className={`flex items-center gap-2 px-6 py-3 rounded-[18px] font-black uppercase text-[10px] tracking-widest transition-all ${formMode === 'standard' ? 'bg-brand-yellow text-brand-blue shadow-lg' : 'text-white hover:bg-white/5'}`}>
                     <FileText size={16} /> Détails
@@ -223,12 +218,12 @@ export default function InsurancePage() {
                       <UploadField 
                         label="Scan Carte Grise" 
                         sub={fileCarteGrise ? "Document prêt" : "Prendre en photo"} 
-                        onChange={(file) => setFileCarteGrise(file)} 
+                        onChange={(file: File | null) => setFileCarteGrise(file)} 
                       />
                       <UploadField 
                         label="Scan Permis" 
                         sub={filePermis ? "Document prêt" : "Facultatif"} 
-                        onChange={(file) => setFilePermis(file)} 
+                        onChange={(file: File | null) => setFilePermis(file)} 
                       />
                     </div>
                   </div>
@@ -257,7 +252,13 @@ export default function InsurancePage() {
 
 /* --- COMPOSANTS DE STRUCTURE --- */
 
-function StepCard({ number, title, text }: any) {
+interface StepCardProps {
+  number: string;
+  title: string;
+  text: string;
+}
+
+function StepCard({ number, title, text }: StepCardProps) {
     return (
       <div className="flex items-start gap-6 p-8 rounded-[35px] bg-white border-b-8 border-brand-yellow shadow-sm hover:shadow-md transition-all">
         <span className="text-5xl font-black text-brand-yellow/40 italic">{number}</span>
@@ -269,7 +270,14 @@ function StepCard({ number, title, text }: any) {
     );
 }
 
-function InputField({ label, placeholder, name, required }: any) {
+interface InputFieldProps {
+  label: string;
+  placeholder: string;
+  name: string;
+  required?: boolean;
+}
+
+function InputField({ label, placeholder, name, required }: InputFieldProps) {
   return (
     <div>
       <label className="block text-brand-blue font-black mb-4 uppercase text-xs italic tracking-widest">{label}</label>
@@ -278,7 +286,13 @@ function InputField({ label, placeholder, name, required }: any) {
   );
 }
 
-function UploadField({ label, sub, onChange }: any) {
+interface UploadFieldProps {
+  label: string;
+  sub: string;
+  onChange: (file: File | null) => void;
+}
+
+function UploadField({ label, sub, onChange }: UploadFieldProps) {
   return (
     <div className="relative group">
       <label className="block text-brand-blue font-black mb-4 uppercase text-xs italic tracking-widest">{label}</label>
