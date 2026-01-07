@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 import { db } from '@/lib/firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { Mail, Phone, MapPin, Send, Loader2, MessageSquare, clock } from 'lucide-react';
+// CORRECTION : Clock avec une Majuscule (même si non utilisé ici, restons propre)
+import { Mail, Phone, MapPin, Send, Loader2, MessageSquare, Clock } from 'lucide-react';
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(false);
@@ -24,6 +25,7 @@ export default function ContactPage() {
       setSent(true);
       (e.target as HTMLFormElement).reset();
     } catch (error) {
+      console.error(error);
       alert("Erreur lors de l'envoi du message.");
     } finally {
       setLoading(false);
@@ -46,7 +48,6 @@ export default function ContactPage() {
               </p>
             </div>
 
-            {/* Image d'accueil client */}
             <div className="relative rounded-[40px] overflow-hidden h-64 shadow-2xl border-4 border-white">
               <img 
                 src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?auto=format&fit=crop&q=80&w=800" 
@@ -56,7 +57,6 @@ export default function ContactPage() {
               <div className="absolute inset-0 bg-brand-blue/20"></div>
             </div>
 
-            {/* Cartes de contact */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <ContactInfoCard 
                 icon={<Phone className="text-brand-yellow" />} 
@@ -81,7 +81,6 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Deuxième image décorative */}
             <div className="rounded-[40px] overflow-hidden h-40">
                 <img 
                   src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" 
@@ -93,7 +92,6 @@ export default function ContactPage() {
 
           {/* --- PARTIE DROITE : FORMULAIRE --- */}
           <div className="bg-brand-blue p-8 md:p-12 rounded-[50px] shadow-2xl relative overflow-hidden">
-            {/* Décoration de fond */}
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 rounded-full -mr-16 -mt-16"></div>
             
             <h2 className="text-2xl font-black text-brand-yellow uppercase italic mb-8 flex items-center gap-3">
@@ -143,6 +141,7 @@ export default function ContactPage() {
 
                 <button 
                   disabled={loading}
+                  type="submit"
                   className="w-full bg-brand-yellow text-brand-blue py-5 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-xl flex items-center justify-center gap-3 uppercase italic"
                 >
                   {loading ? <Loader2 className="animate-spin" /> : <>Envoyer le message <Send size={20}/></>}
@@ -156,7 +155,14 @@ export default function ContactPage() {
   );
 }
 
-function ContactInfoCard({ icon, title, detail }: any) {
+// CORRECTION : Interface pour TypeScript
+interface ContactInfoCardProps {
+  icon: React.ReactNode;
+  title: string;
+  detail: string;
+}
+
+function ContactInfoCard({ icon, title, detail }: ContactInfoCardProps) {
   return (
     <div className="bg-gray-50 p-6 rounded-[30px] border border-gray-100 hover:border-brand-yellow transition-all group">
       <div className="mb-3 group-hover:scale-110 transition-transform">{icon}</div>
