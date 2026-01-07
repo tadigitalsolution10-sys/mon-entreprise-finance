@@ -2,17 +2,17 @@
 import React from 'react';
 
 const partners = [
-  { name: "NSIA Banque", logo: "/partners/nsia.png" },
-  { name: "BOA", logo: "/partners/boa.png" },
+  { name: "NSIA Banque", logo: "/partners/NSIA.png" },
+  { name: "BOA", logo: "/partners/BOA.png" },
   { name: "Coris Bank", logo: "/partners/CORIS.png" },
-  { name: "Atlantique Bank", logo: "/partners/atlantique.png" },
-  { name: "GT Bank", logo: "/partners/gtbank.png" },
+  { name: "Atlantique Bank", logo: "/partners/ATLANTIQUE.png" },
+  { name: "GT Bank", logo: "/partners/GTBANK.png" },
   // On duplique pour que la boucle soit fluide
-  { name: "NSIA Banque", logo: "/partners/nsia.png" },
-  { name: "BOA", logo: "/partners/boa.png" },
-  { name: "Coris Bank", logo: "/partners/coris.png" },
-  { name: "Atlantique Bank", logo: "/partners/atlantique.png" },
-  { name: "GT Bank", logo: "/partners/gtbank.png" },
+  { name: "NSIA Banque", logo: "/partners/NSIA.png" },
+  { name: "BOA", logo: "/partners/BOA.png" },
+  { name: "Coris Bank", logo: "/partners/CORIS.png" },
+  { name: "Atlantique Bank", logo: "/partners/ATLANTIQUE.png" },
+  { name: "GT Bank", logo: "/partners/GTBANK.png" },
 ];
 
 export default function Partners() {
