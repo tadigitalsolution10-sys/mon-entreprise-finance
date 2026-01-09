@@ -99,7 +99,7 @@ export default function InsurancePage() {
           <div className="text-white space-y-8 animate-in fade-in slide-in-from-left duration-700">
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full backdrop-blur-md">
               <ShieldCheck className="text-brand-yellow w-5 h-5" />
-              <span className="text-xs font-black uppercase tracking-tighter">Agent général NSIA Assurance</span>
+              <span className="text-xs font-black uppercase tracking-tighter">Agent général NSIA Assurances</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-black leading-[1.1] uppercase italic">
               Avec <span className="text-brand-yellow">IVERSERVICES</span>, gérez tout en ligne
