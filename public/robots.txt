@@ -1,0 +1,11 @@
+# Bienvenue sur le fichier robots de Iver Services
+User-agent: *
+Allow: /
+
+# On interdit aux robots de voir tes pages privées d'administration
+Disallow: /admin
+Disallow: /admin-inventaire
+Disallow: /api/
+
+# On donne le lien vers ton plan de site (Sitemap) pour indexer les voitures et services
+Sitemap: https://www.ivsc-iverservices.com/sitemap.xml
